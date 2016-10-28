@@ -2,7 +2,7 @@
 
 FROM centos:centos7
 
-MAINTAINER yaoyang <yaoyang@mobvoi.com>
+MAINTAINER sky
 
 # -----------------------------------------------------------------------------
 # Installing Remi Repository
