@@ -30,9 +30,9 @@ RUN ln -sf /usr/share/zoneinfo/UTC /etc/localtime \
 
 
 # install httpd
-RUN yum -y install httpd unzip mod_ssl icu vim man wget openssh-server
-	&& sed -i '$a set nu' /etc/vimrc 
-	&& rm -rf /var/cache/yum/* 
+RUN yum -y install httpd unzip mod_ssl icu vim man wget openssh-server \
+	&& sed -i '$a set nu' /etc/vimrc \
+	&& rm -rf /var/cache/yum/* \
 	&& yum clean all 
 
 
@@ -78,9 +78,9 @@ RUN yum -y install \
 	php-xcache \
 	php-xml \
 	php-xmlrpc \
-#	php-pecl-xdebug \
 	php-runtime 
 
+#	php-pecl-xdebug 
 
 # config httpd.conf
 RUN cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.bak
@@ -131,7 +131,6 @@ COPY supervisord.conf /etc/supervisord.conf
 
 # 容器启动命令
 CMD ["/usr/bin/supervisord"]
-
 
 
 
